@@ -1,5 +1,7 @@
 package com.example.jordan_watson.fishtracker.main;
 
+import android.view.View;
+
 /**
  * Responsible for handling actions from the View and updating the UI as required.
  *
@@ -21,12 +23,12 @@ public class MainPresenter implements MainContract.Presenter {
 
     ////        Presenter methods      ////
     @Override
-    public void handleSignInButtonClick() {
+    public void handleSignInButtonClick(View view) {
         mView.showSignInScreen();
     }
 
     @Override
-    public void handleSignUpButtonClick() {
+    public void handleSignUpButtonClick(View view) {
         mView.showSignUpScreen();
     }
 }

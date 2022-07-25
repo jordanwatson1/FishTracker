@@ -1,11 +1,15 @@
 package com.example.jordan_watson.fishtracker.main;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import android.os.Bundle;
 import android.widget.Toast;
+import android.view.View;
+import android.widget.Button;
 
 import com.example.jordan_watson.fishtracker.R;
+import com.example.jordan_watson.fishtracker.databinding.ActivityMainBinding;
 
 /**
  * Displays the Main screen (the very first screen the App loads)
@@ -23,7 +27,9 @@ public class MainActivity extends AppCompatActivity implements MainContract.MvpV
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         mPresenter = new MainPresenter(this);
+        binding.setPresenter(mPresenter);
     }
 
     ////         MvpView methods        ////
