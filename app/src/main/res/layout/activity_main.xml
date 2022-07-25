@@ -1,28 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
-    tools:context=".main.MainActivity">
+<layout>
 
-    <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="16dp"
-        android:contentDescription="@string/app_name"
-        android:src="@android:drawable/sym_def_app_icon" />
+    <!--  add presenter to layout file  -->
+    <data>
 
-    <Button
+        <variable
+            name="presenter"
+            type="com.example.jordan_watson.fishtracker.main.MainPresenter" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Sign In"
-        android:layout_marginBottom="8dp"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        tools:context=".main.MainActivity">
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Sign Up"/>
-</LinearLayout>
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="16dp"
+            android:contentDescription="@string/app_name"
+            android:src="@android:drawable/sym_def_app_icon" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:onClick="@{presenter::handleSignInButtonClick}"
+            android:text="Sign In" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{presenter::handleSignUpButtonClick}"
+            android:text="Sign Up" />
+    </LinearLayout>
+</layout>
